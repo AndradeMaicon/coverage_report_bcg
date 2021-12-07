@@ -1,22 +1,19 @@
 import { useEffect, useState } from 'react';
 
 import {ReactComponent as BrazilSvg} from '../../assets/br.svg';
-import { readDataBase } from '../../utils/readDatabase';
+import { reportSummary } from '../../utils/reportSummary'; 
 
 import {
   Container,
   Content,
   Title,
+  SubTitle,
   ReportBox,
   Map,
 } from './styles';
 
 export function Home () {
   const [color, setColor] = useState("");
-
-  useEffect(() => {
-    readDataBase()
-  }, [])
 
   useEffect(() => {
     let path = document.getElementById("11")
@@ -30,115 +27,21 @@ export function Home () {
           Cobertura de <br/>
           vaniação BCG 
         </Title>
+        <SubTitle>
+          Percentual maxímo em uma cidade 
+          atigindo por cada estado em 2019.
+        </SubTitle>
         <ReportBox>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
-          <div className="report-item">
-            <p className="state-name">Acre</p>
-            <span className="coverage-percentage">{`${'45'}%`}</span>
-          </div>
+          {reportSummary.map(item => (
+            <div className="report-item" key={item.id}>
+              <p className="state-name">
+                {item.stateName} 
+                <span className="coverage-percentage">
+                  {`${item.percentage.toString().replace(".",",")}%`}
+                </span>
+              </p>
+            </div>
+          ))}
         </ReportBox>
       </Content>
       <Map>

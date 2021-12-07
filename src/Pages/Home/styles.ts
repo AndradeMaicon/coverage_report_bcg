@@ -20,6 +20,14 @@ export const Title = styled.h1`
   color: var(--primary);
 `;
 
+export const SubTitle = styled.p`
+  font-weight: 400;
+  font-size: 1.2rem;
+
+  color: var(--primary);
+
+  margin-top: 1rem;
+`;
 
 export const ReportBox = styled.div`
   display: grid;
@@ -44,18 +52,18 @@ export const ReportBox = styled.div`
 
   .state-name {
     font-weight: 900;
-    font-size: 1.2rem;
+    font-size: 1rem;
 
     color: var(--primary);
-
-    margin-right: 0.3rem;
   }
 
   .coverage-percentage {
     font-weight: 900;
-    font-size: 1.2rem;
+    font-size: 1rem;
 
     color: var(--zeroToTen);
+
+    margin-left: 0.3rem;
   }
 `;
 
