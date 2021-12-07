@@ -7,7 +7,7 @@ export function Header () {
       <div className="search-box">
         <span>
           Informe o estado e ano <br />
-          ue deseja analisar
+          que deseja analisar
         </span>
 
         <div className="search-inputs">

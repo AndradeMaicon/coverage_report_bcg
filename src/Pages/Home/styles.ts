@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface IPercentageProps {
+  color: string;
+}
+
 export const Container = styled.div`
   display: flex;
 
@@ -56,15 +60,15 @@ export const ReportBox = styled.div`
 
     color: var(--primary);
   }
+`;
 
-  .coverage-percentage {
-    font-weight: 900;
-    font-size: 1rem;
+export const Percentage = styled.span<IPercentageProps>`
+  font-weight: 900;
+  font-size: 1rem;
 
-    color: var(--zeroToTen);
+  color: ${({ color }) => color};
 
-    margin-left: 0.3rem;
-  }
+  margin-left: 0.3rem;
 `;
 
 export const Map = styled.div`

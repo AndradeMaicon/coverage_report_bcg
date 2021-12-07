@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import {ReactComponent as BrazilSvg} from '../../assets/br.svg';
+import { ReactComponent as BrazilSvg } from '../../assets/br.svg';
 import { reportSummary } from '../../utils/reportSummary'; 
+import { whichColor } from '../../utils/whichColor';
 
 import {
   Container,
@@ -9,15 +10,16 @@ import {
   Title,
   SubTitle,
   ReportBox,
+  Percentage,
   Map,
 } from './styles';
 
 export function Home () {
-  const [color, setColor] = useState("");
-
   useEffect(() => {
-    let path = document.getElementById("11")
-    path?.setAttribute("fill", "#FFF")
+    reportSummary.forEach((item) => {
+      let path = document.getElementById(`${item.id}`)
+      path && path.setAttribute("fill", whichColor(item.percentage))
+    })
   }, [])
 
   return (
@@ -36,9 +38,9 @@ export function Home () {
             <div className="report-item" key={item.id}>
               <p className="state-name">
                 {item.stateName} 
-                <span className="coverage-percentage">
+                <Percentage color={whichColor(item.percentage)}>
                   {`${item.percentage.toString().replace(".",",")}%`}
-                </span>
+                </Percentage>
               </p>
             </div>
           ))}
