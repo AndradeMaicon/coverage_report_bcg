@@ -6,8 +6,6 @@ export function maxPercentage(id: number, year: number) {
   const stateCoverage = coverage.filter((item) => item.id_estado === id && item.ano === year)
 
   const percentages = stateCoverage.map((item) => (item.cob_vac_bcg))
-
-  console.log(percentages)
   
   const maxValue = Math.max(...percentages)
   

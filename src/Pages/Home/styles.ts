@@ -5,6 +5,8 @@ interface IPercentageProps {
 }
 
 export const Container = styled.div`
+  position: relative;
+
   display: flex;
 
   margin: 16rem auto;
