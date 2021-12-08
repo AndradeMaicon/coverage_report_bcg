@@ -1,12 +1,5 @@
 import styled from "styled-components"
 
-interface IContainerProps {
-  position: {
-    x: number,
-    y: number,
-  }
-}
-
 interface IDataProps {
   color: string
 }
@@ -61,7 +54,7 @@ export const InfoBoxArrow = styled.div`
 `;
 
 export const Title = styled.p`
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 900;
 
   color: var(--text-color);

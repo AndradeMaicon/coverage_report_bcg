@@ -1,13 +1,19 @@
-import React from 'react';
-import { Layout } from './components/Layout';
+import { BrowserRouter as Router } from "react-router-dom";
+import { Header } from "./components/Header";
+import { Layout } from "./components/Layout";
+import { MainRouter } from "./routes";
 
 import { GlobalStyle } from './styles/GlobalStyles';
 
 function App() {
   return (
     <>
-      <Layout />
-
+      <Layout>
+        <Header />
+        <Router>
+          <MainRouter />
+        </Router>
+      </Layout>
       <GlobalStyle />
     </>
   );

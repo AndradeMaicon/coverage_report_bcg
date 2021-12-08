@@ -4,7 +4,7 @@ export const Label = styled.label`
   display: none;
 `;
 
-export const Select = styled.select`
+export const Input = styled.input`
   width: 100%;
   height: 4rem;
 
@@ -23,4 +23,3 @@ export const Select = styled.select`
     border: 0.2rem solid var(--ninetyToHundred);
   }
 `;
-

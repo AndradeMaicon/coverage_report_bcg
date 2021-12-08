@@ -1,18 +1,24 @@
+import { UseFormRegister } from 'react-hook-form';
+import { reportSummary } from '../../utils/reportSummary';
+
+import { IFormInput } from '../Header';
+
 import { Label, Select } from './styles';
+
 
 interface IProps {
   label: string;
-  placeholder: string;
+  register: UseFormRegister<IFormInput>;
 }
 
-export function SelectInput ({label, placeholder}: IProps) {
+export function SelectInput ({label, register }: IProps) {
   return(
     <>
       <Label>{label}</Label>
-      <Select placeholder="placeholder">
-        <option value="female">female</option>
-        <option value="male">male</option>
-        <option value="other">other</option>
+      <Select {...register("state")}>
+        {reportSummary.map((item) => (
+          <option key={item.id} value={item.id}>{item.stateName}</option>
+        ))}
       </Select>
     </>
   )

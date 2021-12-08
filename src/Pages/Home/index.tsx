@@ -30,7 +30,7 @@ export function Home () {
   const [stateName, setStateName] = useState("")
   const [statePercentage, setStatePercentage] = useState(0)
 
-  function setTarget (path: SVGPathElement) {
+  const setTarget = useCallback((path: SVGPathElement) => {
     let [ x , y ] = [ 0, 0 ];
 
 
@@ -40,8 +40,7 @@ export function Home () {
     y = dimensions.y - 70 + (dimensions.height / 2);
 
     setPosition({ x, y })
-    setInfoBoxData(path.id)
-  }
+  }, [])
 
   function clearTarget () {
     setPosition({
@@ -50,16 +49,14 @@ export function Home () {
     })
   }
 
-  function setInfoBoxData (id: string) {
+  const setInfoBoxData = useCallback((id: string) => {
     const data = (reportSummary.filter(item => item.id === +id))[0]
-
-    console.log(data)
 
     if (data.id) {
       setStateName(data.stateName)
       setStatePercentage(data.percentage)
     }
-  }
+  }, [])
 
   useEffect(() => {
     reportSummary.forEach((item) => {
@@ -73,16 +70,22 @@ export function Home () {
 
     if(svgPaths) {
       svgPaths.forEach(path => {
-        path.addEventListener("mouseenter", () => setTarget(path))
+        path.addEventListener("mouseenter", () => {
+          setTarget(path)
+          setInfoBoxData(path.id)
+        })
       })
 
       return () => {
         svgPaths.forEach(path => {
-          path.removeEventListener("mouseenter", () => setTarget(path))
+          path.removeEventListener("mouseenter", () => {
+            setTarget(path)
+            setInfoBoxData(path.id)
+          })
         })
       }
     }
-  }, [])
+  }, [ setTarget, setInfoBoxData ])
 
   useEffect(() => {
     const brazilMap = document.getElementById("brazil-svg")
@@ -107,7 +110,7 @@ export function Home () {
         <Content>
           <Title>
             Cobertura de <br/>
-            vaniação BCG 
+            vaciação BCG 
           </Title>
           <SubTitle>
             Percentual maxímo em uma cidade 

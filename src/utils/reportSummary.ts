@@ -165,5 +165,5 @@ export const reportSummary = [
 [X] 50 - Mato Grosso do Sul/MS
 [X] 51 - Mato Grosso/MT
 [X] 52 - Goiás/GO
-[] 53 - Distrito Federal/DF
+[X] 53 - Distrito Federal/DF
 */

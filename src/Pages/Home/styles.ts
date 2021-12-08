@@ -5,18 +5,22 @@ interface IPercentageProps {
 }
 
 export const Container = styled.div`
+  grid-area: MN;
+
   position: relative;
 
   display: flex;
 
-  margin: 16rem auto;
+  margin: 0 auto;
 
-  max-width: 128rem;
+  width: min(128rem , 100%);
 `;
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  
+  justify-content: center;
 `;
 
 export const Title = styled.h1`
