@@ -1,3 +1,7 @@
+<p align="center">
+  <img alt="coverage bcg vaccine" src="https://media.giphy.com/media/368D2XK21zUy1JTvAy/giphy.gif">
+</p>
+
 # Relatório de cobertura da vacina BCG
 
 Este projeto foi concebido como um teste, com o intuito de mostrar o percentual de pessoas que tomaram a vacina BCG nos municípios brasileiros.
