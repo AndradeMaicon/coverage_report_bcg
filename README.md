@@ -14,7 +14,7 @@ A base fornecida possui dados de 2010 até 2019.
 O projeto foi concebido utilizando a biblioteca [React JS](https://pt-br.reactjs.org/) com [Typescript](https://www.typescriptlang.org/). O projeto não possui uma camada backend o arquivo JSON utilizado para as consultas se encontra no caminho `./scr/database`.
 
 **Protótipo**
-* [Protótipo no Figma](https://www.figma.com/file/KSzaL1uRAuAOfxWPFI8atU/Untitled?node-id=0%3A1).
+* [Protótipo no Figma](https://www.figma.com/file/KSzaL1uRAuAOfxWPFI8atU/bcg_vaccini?node-id=30%3A26).
 
 **Bibliotecas utilizadas**
 * [Framer Motion](https://www.framer.com/motion/).
