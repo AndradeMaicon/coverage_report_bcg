@@ -4,16 +4,18 @@ import { IFormInput } from '../Header';
 import { Label, Input } from './styles';
 
 interface IProps {
+  inputId: string;
   label: string;
   register: UseFormRegister<IFormInput>;
 }
 
-export function YearSelect({label, register }: IProps) {
+export function YearSelect({label, register, inputId }: IProps) {
   return (
     <>
-      <Label>{label}</Label>
+      <Label htmlFor={inputId} >{label}</Label>
       <Input
         {...register("year")}
+        id={inputId}
         type="number" 
         placeholder="2019"
         min="2010"

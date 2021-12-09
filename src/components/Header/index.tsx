@@ -63,8 +63,8 @@ export function Header () {
         </span>
 
         <form className="search-inputs" onSubmit={handleSubmit(onSubmit)}>
-          <SelectInput label="selecione um estado" register={register}/>
-          <YearSelect label="selecione o ano" register={register}/>
+          <SelectInput inputId="select-state-input" label="selecione um estado" register={register}/>
+          <YearSelect inputId="select-date-input" label="selecione o ano" register={register}/>
           <button id="form-submit-button" type="submit">
             <FiSearch />
           </button>

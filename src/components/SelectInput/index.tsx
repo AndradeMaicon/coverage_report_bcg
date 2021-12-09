@@ -7,15 +7,16 @@ import { Label, Select } from './styles';
 
 
 interface IProps {
+  inputId: string;
   label: string;
   register: UseFormRegister<IFormInput>;
 }
 
-export function SelectInput ({label, register }: IProps) {
+export function SelectInput ({label, register, inputId }: IProps) {
   return(
     <>
-      <Label>{label}</Label>
-      <Select {...register("state")}>
+      <Label htmlFor={inputId} >{label}</Label>
+      <Select id={inputId} {...register("state")}>
         {reportSummary.map((item) => (
           <option key={item.id} value={item.id}>{item.stateName}</option>
         ))}

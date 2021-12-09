@@ -1,7 +1,15 @@
 import styled from "styled-components";
 
 export const Label = styled.label`
-  display: none;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  margin: -1;
+  overflow: hidden;
+  clip-path: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 `;
 
 export const Select = styled.select`
