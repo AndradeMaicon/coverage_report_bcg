@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-
 import { FiArrowLeft } from "react-icons/fi"
+import { motion } from 'framer-motion';
 
 import { Container } from "./styles"
 import { useCallback, useEffect, useState } from "react";
@@ -69,7 +69,7 @@ export function State() {
     })
   }
 
-  const setInfoBoxData = useCallback((id: string) => {
+  const setStateInfoBoxData = useCallback((id: string) => {
     const data = (cities.filter(item => item.id_munic === +id))[0]
 
     if (data.id_munic) {
@@ -77,6 +77,7 @@ export function State() {
       setCityPercentage(+(Math.round(data.cob_vac_bcg * 100) / 100).toFixed(2))
     }
   }, [cities])
+  
 
   useEffect(() => {
     const svgPaths = Array.from(document.getElementsByTagName("path"))
@@ -85,7 +86,7 @@ export function State() {
       svgPaths.forEach(path => {
         path.addEventListener("mouseenter", () => {
           setTarget(path)
-          setInfoBoxData(path.id)
+          setStateInfoBoxData(path.id)
         })
       })
 
@@ -93,16 +94,16 @@ export function State() {
         svgPaths.forEach(path => {
           path.removeEventListener("mouseenter", () => {
             setTarget(path)
-            setInfoBoxData(path.id)
+            setStateInfoBoxData(path.id)
           })
         })
       }
     }
-  }, [ setTarget, setInfoBoxData ])
+  }, [ setTarget, setStateInfoBoxData ])
 
   useEffect(() => {
-    const stateMap = Array.from(document.getElementsByTagName("svg"))
-    
+    const stateMap = Array.from(document.getElementsByTagName("g"))
+
     if(stateMap) {
       stateMap.forEach(item => {
         item.addEventListener("mouseout", () => clearTarget())
@@ -114,7 +115,7 @@ export function State() {
         })
       }
     }
-  }, [])
+  }, [cities])
 
   useEffect(() => {
     setStateCode(params.stateId)
@@ -139,18 +140,48 @@ export function State() {
         target={position}
       />
       <Container>
-        <div className="page-header">
+        <motion.div 
+          className="page-header"
+          initial={{
+            opacity: 0,
+            x: 500,
+          }}
+          animate={{
+            opacity: 1, 
+            x: 0,
+          }}
+          transition={{
+            ease: 'easeOut',
+            opacity: { duration: 0.5 },
+            x: { duration: 0.8 },
+          }}
+        >
           <Link className="go-back" to="/">
             <FiArrowLeft />
           </Link>
           <h1 id="state-name">
             {stateName} - <span id="year-selected">{selectedYear}</span>
           </h1>
-        </div>
+        </motion.div>
 
-        <div id="map-container">
+        <motion.div 
+          id="map-container"
+          initial={{
+            opacity: 0,
+            x: -500,
+          }}
+          animate={{
+            opacity: 1, 
+            x: 0,
+          }}
+          transition={{
+            ease: 'easeOut',
+            opacity: { duration: 0.5 },
+            x: { duration: 0.8 },
+          }}
+        >
           {whichState(stateCode)}
-        </div>
+        </motion.div>
       </Container>
     </>
   )

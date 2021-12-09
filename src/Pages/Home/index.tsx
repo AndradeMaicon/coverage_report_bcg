@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 import { ReactComponent as BrazilSvg } from '../../assets/br.svg';
 import { InfoCard } from '../../components/InfoCard';
@@ -7,12 +8,10 @@ import { whichColor } from '../../utils/whichColor';
 
 import {
   Container,
-  Content,
   Title,
   SubTitle,
   ReportBox,
   Percentage,
-  Map,
 } from './styles';
 
 
@@ -107,10 +106,25 @@ export function Home () {
         target={position}
       />
       <Container>
-        <Content>
+        <motion.div
+          className="home-content"
+          initial={{
+            opacity: 0,
+            x: -500,
+          }}
+          animate={{
+            opacity: 1, 
+            x: 0,
+          }}
+          transition={{
+            ease: 'easeOut',
+            opacity: { duration: 0.5 },
+            x: { duration: 0.8 },
+          }}
+        >
           <Title>
             Cobertura de <br/>
-            vaciação BCG 
+            vacinação <span>BCG</span> 
           </Title>
           <SubTitle>
             Percentual maxímo em uma cidade 
@@ -128,10 +142,25 @@ export function Home () {
               </div>
             ))}
           </ReportBox>
-        </Content>
-        <Map>
+        </motion.div>
+        <motion.div 
+          className="home-map"
+          initial={{
+            opacity: 0,
+            x: 500,
+          }}
+          animate={{
+            opacity: 1, 
+            x: 0,
+          }}
+          transition={{
+            ease: 'easeOut',
+            opacity: { duration: 0.5 },
+            x: { duration: 0.8 },
+          }}
+        >
           <BrazilSvg id="brazil-svg"/>
-        </Map>
+        </motion.div>
       </Container>
     </>
   )

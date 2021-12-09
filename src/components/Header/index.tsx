@@ -1,6 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { useForm, SubmitHandler } from "react-hook-form";
-import * as yup from 'yup';
 
 import { SelectInput } from "../SelectInput";
 import { YearSelect } from "../YearSelect";
@@ -44,24 +44,14 @@ export interface IFormInput {
 
 export function Header () {
   const { register, handleSubmit } = useForm<IFormInput>();
+  const navigate = useNavigate()
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    try {
-      const schema = yup.object().shape({
-        state: yup.number().required("Por favor selecione um estado")
-      })
-
-      schema.validate(data)
-
-      if (data.year === "") {
-        data.year = "2019"
-      }
-
-      fetch(`https://servicodados.ibge.gov.br/api/v3/malhas/estados/${11}?formato=image/svg+xml&qualidade=intermediaria&intrarregiao=municipio`)
-      .then(resp => console.log(resp))
-
-    } catch (error) {
-      console.log(error)
+    if (data.year === "") {
+      data.year = "2019"
     }
+
+    navigate(`/state/${data.state}/${data.year}`)
   };
 
   return (

@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <Layout>
-        <Header />
         <Router>
+          <Header />
           <MainRouter />
         </Router>
       </Layout>

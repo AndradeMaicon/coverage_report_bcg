@@ -14,13 +14,27 @@ export const Container = styled.div`
   margin: 0 auto;
 
   width: min(128rem , 100%);
-`;
 
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  
-  justify-content: center;
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+  }
+
+  .home-map {
+    display: flex;
+
+    width: 100%;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    > svg {
+      width: 50rem;
+      height: 50rem;
+    }
+  }
 `;
 
 export const Title = styled.h1`
@@ -28,6 +42,10 @@ export const Title = styled.h1`
   font-size: 6.2rem;
 
   color: var(--primary);
+
+  > span {
+    color: var(--eightyToNinety);
+  }
 `;
 
 export const SubTitle = styled.p`
@@ -76,17 +94,3 @@ export const Percentage = styled.span<IPercentageProps>`
 
   margin-left: 0.3rem;
 `;
-
-export const Map = styled.div`
-  display: flex;
-
-  width: 100%;
-
-  align-items: center;
-  justify-content: flex-end;
-
-  > svg {
-    width: 50rem;
-    height: 50rem;
-  }
-`
