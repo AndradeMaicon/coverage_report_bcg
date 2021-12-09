@@ -127,8 +127,7 @@ export function Home () {
             vacinação <span>BCG</span> 
           </Title>
           <SubTitle>
-            Percentual maxímo em uma cidade 
-            atigindo por cada estado em 2019.
+            Percentual máximo atingido por munícipio em cada estado em 2019.
           </SubTitle>
           <ReportBox>
             {reportSummary.map(item => (

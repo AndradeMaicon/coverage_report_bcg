@@ -21,7 +21,8 @@ export function InfoCard({ title, data, target }:IProps) {
     x: 0,
     y: 0,
   })
-
+  
+  
   useEffect(() => {
     setPosition({
       x: target.x,
