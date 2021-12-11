@@ -51,7 +51,7 @@ export function State() {
   }, [])
 
 
-  const setTarget = useCallback((path: SVGPathElement) => {
+  const setTarget = useCallback((path: Element) => {
     let [ x , y ] = [ 0, 0 ];
 
     const dimensions = path.getBoundingClientRect()
@@ -80,7 +80,7 @@ export function State() {
   
 
   useEffect(() => {
-    const svgPaths = Array.from(document.getElementsByTagName("path"))
+    const svgPaths = Array.from(document.querySelectorAll("div#map-container > svg > g > path"))
 
     if(svgPaths) {
       svgPaths.forEach(path => {

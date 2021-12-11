@@ -29,7 +29,7 @@ export function Home () {
   const [stateName, setStateName] = useState("")
   const [statePercentage, setStatePercentage] = useState(0)
 
-  const setTarget = useCallback((path: SVGPathElement) => {
+  const setTarget = useCallback((path: Element) => {
     let [ x , y ] = [ 0, 0 ];
 
 
@@ -65,7 +65,7 @@ export function Home () {
   }, [])
 
   useEffect(() => {
-    const svgPaths = Array.from(document.getElementsByTagName("path"))
+    const svgPaths = Array.from(document.querySelectorAll("div.home-map > svg > g > path"))
 
     if(svgPaths) {
       svgPaths.forEach(path => {

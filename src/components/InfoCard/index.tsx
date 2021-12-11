@@ -45,9 +45,9 @@ export function InfoCard({ title, data, target }:IProps) {
         }}
         transition={{
           ease: 'easeInOut',
-          opacity: { duration: 0 },
-          x: { duration: 0 },
-          y: { duration: 0 }
+          opacity: { duration: 1 },
+          x: { duration: 0.3 },
+          y: { duration: 0.3 }
         }}
       >
         <div className="infoCard-content">
