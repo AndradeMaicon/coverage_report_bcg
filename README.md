@@ -9,7 +9,7 @@ Este projeto foi concebido como um teste, com o intuito de mostrar o percentual 
 Na parte superior da tela é possível escolher a unidade da federação (estado) e ano que deseja analisar, caso um ano não seja informado por padrão o mais atual será mostrado.
 A base fornecida possui dados de 2010 até 2019.
 
-**Preview no Netlify** [Clique aqui](https://coveragebcgvaccine.netlify.app/) 
+**Preview online** [Clique aqui](https://vacinabcg.maicon.app/) 
 
 ## Sobre o projeto
 
